@@ -121,6 +121,11 @@ hr {
   transform: rotate(15deg);
 }
 
+.stat-form {
+  padding-left: 60px;
+  padding-top: 20px;
+}
+
 @media (min-width: 576px) {
   .card-columns {
     column-count: 1;

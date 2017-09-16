@@ -314,65 +314,67 @@ export default class TeamStats extends React.Component {
                   paddingLeft: "20px"
                 }}
               />
-              <form>
-                <div className="form-group col-lg-4">
-                  <label for="sel1" className="select-stat-label">
-                    Select Stat:
-                  </label>
-                  <select
-                    className="form-control"
-                    id="sel1"
-                    onChange={this.firstInputChange}
-                  >
-                    <option>ppg</option>
-                    <option>astpg</option>
-                    <option>rebpg</option>
-                    <option>mpg</option>
-                    <option>stlpg</option>
-                    <option>blkpg</option>
-                    <option>plusMinuspg</option>
-                    <option>topg</option>
-                    <option>twoPtPct</option>
-                    <option>threePtPct</option>
-                    <option>fgPct</option>
-                    <option>freeThrowPct</option>
-                    <option>gamesPlayed</option>
-                  </select>
-                </div>
-                <div className="form-group col-lg-4">
-                  <label for="sel2" className="select-stat-label">
-                    Select Stat:
-                  </label>
-                  <select
-                    onChange={this.secondInputChange}
-                    className="form-control"
-                    id="sel2"
-                  >
-                    <option>rebpg</option>
-                    <option>ppg</option>
-                    <option>astpg</option>
-                    <option>mpg</option>
-                    <option>stlpg</option>
-                    <option>blkpg</option>
-                    <option>plusMinuspg</option>
-                    <option>topg</option>
-                    <option>twoPtPct</option>
-                    <option>threePtPct</option>
-                    <option>fgPct</option>
-                    <option>freeThrowPct</option>
-                    <option>gamesPlayed</option>
-                  </select>
-                </div>
-                <div className="submit-button col-lg-4">
-                  <button
-                    className="laker-button"
-                    onClick={this.handleSubmit}
-                    id="submit-button"
-                  >
-                    Submit
-                  </button>
-                </div>
-              </form>
+              <div className="stat-form">
+                <form>
+                  <div className="form-group col-lg-4">
+                    <label for="sel1" className="select-stat-label">
+                      Select Stat:
+                    </label>
+                    <select
+                      className="form-control"
+                      id="sel1"
+                      onChange={this.firstInputChange}
+                    >
+                      <option>ppg</option>
+                      <option>astpg</option>
+                      <option>rebpg</option>
+                      <option>mpg</option>
+                      <option>stlpg</option>
+                      <option>blkpg</option>
+                      <option>plusMinuspg</option>
+                      <option>topg</option>
+                      <option>twoPtPct</option>
+                      <option>threePtPct</option>
+                      <option>fgPct</option>
+                      <option>freeThrowPct</option>
+                      <option>gamesPlayed</option>
+                    </select>
+                  </div>
+                  <div className="form-group col-lg-4">
+                    <label for="sel2" className="select-stat-label">
+                      Select Stat:
+                    </label>
+                    <select
+                      onChange={this.secondInputChange}
+                      className="form-control"
+                      id="sel2"
+                    >
+                      <option>rebpg</option>
+                      <option>ppg</option>
+                      <option>astpg</option>
+                      <option>mpg</option>
+                      <option>stlpg</option>
+                      <option>blkpg</option>
+                      <option>plusMinuspg</option>
+                      <option>topg</option>
+                      <option>twoPtPct</option>
+                      <option>threePtPct</option>
+                      <option>fgPct</option>
+                      <option>freeThrowPct</option>
+                      <option>gamesPlayed</option>
+                    </select>
+                  </div>
+                  <div className="submit-button col-lg-4">
+                    <button
+                      className="laker-button"
+                      onClick={this.handleSubmit}
+                      id="submit-button"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
