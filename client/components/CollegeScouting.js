@@ -22,7 +22,19 @@ export default class CollegeScouting extends React.Component {
       team: "All College",
       showModal: false,
       name: "",
-      astpg: ""
+      astpg: null,
+      position: "",
+      stlpg: null,
+      blkpg: null,
+      mpg: null,
+      twoPtPct: null,
+      threePtPct: null,
+      gamesPlayed: null,
+      fgPct: null,
+      freeThrowPct: null,
+      topg: null,
+      fgAtt: null,
+      threePtAtt: null
     };
     this.createChart = this.createChart.bind(this);
     this.firstInputChange = this.firstInputChange.bind(this);
@@ -85,6 +97,8 @@ export default class CollegeScouting extends React.Component {
             topg: data.data[i].topg,
             fgAtt: data.data[i].fgAtt,
             threePtAtt: data.data[i].threePtAtt,
+            ppg: data.data[i].ppg,
+            rebpg: data.data[i].rebpg,
             color: "rgba(85, 37, 130, .75)",
             _symbolIndex: 0
           });
@@ -156,9 +170,31 @@ export default class CollegeScouting extends React.Component {
             events: {
               click: event => {
                 console.log("hitting");
-                this.open();
                 console.log(event.point.series.userOptions);
-                this.setState({});
+                this.setState(
+                  {
+                    name: event.point.series.userOptions.name,
+                    astpg: event.point.series.userOptions.astpg,
+                    position: event.point.series.userOptions.position,
+                    stlpg: event.point.series.userOptions.stlpg,
+                    blkpg: event.point.series.userOptions.blkpg,
+                    mpg: event.point.series.userOptions.mpg,
+                    twoPtPct: event.point.series.userOptions.twoPtPct,
+                    threePtPct: event.point.series.userOptions.threePtPct,
+                    gamesPlayed: event.point.series.userOptions.gamesPlayed,
+                    fgPct: event.point.series.userOptions.fgPct,
+                    freeThrowPct: event.point.series.userOptions.freeThrowPct,
+                    topg: event.point.series.userOptions.topg,
+                    fgAtt: event.point.series.userOptions.fgAtt,
+                    threePtAtt: event.point.series.userOptions.threePtAtt,
+                    ppg: event.point.series.userOptions.ppg,
+                    rebpg: event.point.series.userOptions.rebpg
+                  },
+                  () => {
+                    console.log("DAS STATE: ", this.state);
+                    this.open();
+                  }
+                );
               }
             }
           },
@@ -235,6 +271,8 @@ export default class CollegeScouting extends React.Component {
             topg: data.data[i].topg,
             fgAtt: data.data[i].fgAtt,
             threePtAtt: data.data[i].threePtAtt,
+            ppg: data.data[i].ppg,
+            rebpg: data.data[i].rebpg,
             color: "rgba(85, 37, 130, .75)",
             _symbolIndex: 0
           });
@@ -337,18 +375,24 @@ export default class CollegeScouting extends React.Component {
         </div>
         <Modal style={{}} show={this.state.showModal} onHide={this.close}>
           <Modal.Header>
-            <Modal.Title>Player Profile</Modal.Title>
+            <Modal.Title>{this.state.name}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <label>This is the clicked player.</label>
-            <Form>
-              <input
-                name="player"
-                className="edit-profile-input"
-                type="text"
-                placeholder="Enter the player"
-              />
-            </Form>
+            <div>Pos: {this.state.position}</div>
+            <div>GP: {this.state.gamesPlayed}</div>
+            <div>MPG: {this.state.mpg}</div>
+            <div>PPG: {this.state.ppg}</div>
+            <div>Ast: {this.state.astpg}</div>
+            <div>Reb: {this.state.rebpg}</div>
+            <div>Stl: {this.state.stlpg}</div>
+            <div>Blk: {this.state.blkpg}</div>
+            <div>TOV: {this.state.topg}</div>
+            <div>FG Att: {this.state.fgAtt}</div>
+            <div>FG %: {this.state.fgPct}</div>
+            <div>FT %: {this.state.freeThrowPct}</div>
+            <div>2PT %: {this.state.twoPtPct}</div>
+            <div>3PT Att: {this.state.threePtAtt}</div>
+            <div>3PT %: {this.state.threePtPct}</div>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close}>Cancel</Button>

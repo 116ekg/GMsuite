@@ -41023,7 +41023,19 @@ var CollegeScouting = function (_React$Component) {
       team: "All College",
       showModal: false,
       name: "",
-      astpg: ""
+      astpg: null,
+      position: "",
+      stlpg: null,
+      blkpg: null,
+      mpg: null,
+      twoPtPct: null,
+      threePtPct: null,
+      gamesPlayed: null,
+      fgPct: null,
+      freeThrowPct: null,
+      topg: null,
+      fgAtt: null,
+      threePtAtt: null
     };
     _this.createChart = _this.createChart.bind(_this);
     _this.firstInputChange = _this.firstInputChange.bind(_this);
@@ -41089,6 +41101,8 @@ var CollegeScouting = function (_React$Component) {
             topg: data.data[i].topg,
             fgAtt: data.data[i].fgAtt,
             threePtAtt: data.data[i].threePtAtt,
+            ppg: data.data[i].ppg,
+            rebpg: data.data[i].rebpg,
             color: "rgba(85, 37, 130, .75)",
             _symbolIndex: 0
           });
@@ -41159,9 +41173,28 @@ var CollegeScouting = function (_React$Component) {
               events: {
                 click: function click(event) {
                   console.log("hitting");
-                  _this3.open();
                   console.log(event.point.series.userOptions);
-                  _this3.setState({});
+                  _this3.setState({
+                    name: event.point.series.userOptions.name,
+                    astpg: event.point.series.userOptions.astpg,
+                    position: event.point.series.userOptions.position,
+                    stlpg: event.point.series.userOptions.stlpg,
+                    blkpg: event.point.series.userOptions.blkpg,
+                    mpg: event.point.series.userOptions.mpg,
+                    twoPtPct: event.point.series.userOptions.twoPtPct,
+                    threePtPct: event.point.series.userOptions.threePtPct,
+                    gamesPlayed: event.point.series.userOptions.gamesPlayed,
+                    fgPct: event.point.series.userOptions.fgPct,
+                    freeThrowPct: event.point.series.userOptions.freeThrowPct,
+                    topg: event.point.series.userOptions.topg,
+                    fgAtt: event.point.series.userOptions.fgAtt,
+                    threePtAtt: event.point.series.userOptions.threePtAtt,
+                    ppg: event.point.series.userOptions.ppg,
+                    rebpg: event.point.series.userOptions.rebpg
+                  }, function () {
+                    console.log("DAS STATE: ", _this3.state);
+                    _this3.open();
+                  });
                 }
               }
             },
@@ -41241,6 +41274,8 @@ var CollegeScouting = function (_React$Component) {
             topg: data.data[i].topg,
             fgAtt: data.data[i].fgAtt,
             threePtAtt: data.data[i].threePtAtt,
+            ppg: data.data[i].ppg,
+            rebpg: data.data[i].rebpg,
             color: "rgba(85, 37, 130, .75)",
             _symbolIndex: 0
           });
@@ -41500,26 +41535,101 @@ var CollegeScouting = function (_React$Component) {
             _react2.default.createElement(
               _reactBootstrap.Modal.Title,
               null,
-              "Player Profile"
+              this.state.name
             )
           ),
           _react2.default.createElement(
             _reactBootstrap.Modal.Body,
             null,
             _react2.default.createElement(
-              "label",
+              "div",
               null,
-              "This is the clicked player."
+              "Pos: ",
+              this.state.position
             ),
             _react2.default.createElement(
-              _reactBootstrap.Form,
+              "div",
               null,
-              _react2.default.createElement("input", {
-                name: "player",
-                className: "edit-profile-input",
-                type: "text",
-                placeholder: "Enter the player"
-              })
+              "GP: ",
+              this.state.gamesPlayed
+            ),
+            _react2.default.createElement(
+              "div",
+              null,
+              "MPG: ",
+              this.state.mpg
+            ),
+            _react2.default.createElement(
+              "div",
+              null,
+              "PPG: ",
+              this.state.ppg
+            ),
+            _react2.default.createElement(
+              "div",
+              null,
+              "Ast: ",
+              this.state.astpg
+            ),
+            _react2.default.createElement(
+              "div",
+              null,
+              "Reb: ",
+              this.state.rebpg
+            ),
+            _react2.default.createElement(
+              "div",
+              null,
+              "Stl: ",
+              this.state.stlpg
+            ),
+            _react2.default.createElement(
+              "div",
+              null,
+              "Blk: ",
+              this.state.blkpg
+            ),
+            _react2.default.createElement(
+              "div",
+              null,
+              "TOV: ",
+              this.state.topg
+            ),
+            _react2.default.createElement(
+              "div",
+              null,
+              "FG Att: ",
+              this.state.fgAtt
+            ),
+            _react2.default.createElement(
+              "div",
+              null,
+              "FG %: ",
+              this.state.fgPct
+            ),
+            _react2.default.createElement(
+              "div",
+              null,
+              "FT %: ",
+              this.state.freeThrowPct
+            ),
+            _react2.default.createElement(
+              "div",
+              null,
+              "2PT %: ",
+              this.state.twoPtPct
+            ),
+            _react2.default.createElement(
+              "div",
+              null,
+              "3PT Att: ",
+              this.state.threePtAtt
+            ),
+            _react2.default.createElement(
+              "div",
+              null,
+              "3PT %: ",
+              this.state.threePtPct
             )
           ),
           _react2.default.createElement(

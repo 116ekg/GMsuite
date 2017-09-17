@@ -107,7 +107,9 @@ module.exports = {
           "freeThrowPct",
           "topg",
           "fgAtt",
-          "threePtAtt"
+          "threePtAtt",
+          "ppg",
+          "rebpg"
         ]
       })
       .then(data => {
@@ -160,7 +162,9 @@ module.exports = {
           "freeThrowPct",
           "topg",
           "fgAtt",
-          "threePtAtt"
+          "threePtAtt",
+          "ppg",
+          "rebpg"
         ]
       })
       .then(data => {
