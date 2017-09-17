@@ -20,7 +20,9 @@ export default class CollegeScouting extends React.Component {
       statOne: "ppg",
       statTwo: "rebpg",
       team: "All College",
-      showModal: false
+      showModal: false,
+      name: "",
+      astpg: ""
     };
     this.createChart = this.createChart.bind(this);
     this.firstInputChange = this.firstInputChange.bind(this);
@@ -64,11 +66,25 @@ export default class CollegeScouting extends React.Component {
     axios
       .get("/api/players/getCollegeRPGandPPG")
       .then(data => {
-        //console.log("THIS IS REBandPPG DATA: ", data.data[1]);
+        console.log("THIS IS REBandPPG DATA: ", data);
         for (var i = 1; i < data.data.length; i++) {
           rebPPGdata.push({
             data: [[data.data[i].rebpg, data.data[i].ppg]],
             name: data.data[i].firstName + " " + data.data[i].lastName,
+            id: data.data[i].id,
+            position: data.data[i].position,
+            astpg: data.data[i].astpg,
+            stlpg: data.data[i].stlpg,
+            blkpg: data.data[i].blkpg,
+            mpg: data.data[i].mpg,
+            twoPtPct: data.data[i].twoPtPct,
+            threePtPct: data.data[i].threePtPct,
+            gamesPlayed: data.data[i].gamesPlayed,
+            fgPct: data.data[i].fgPct,
+            freeThrowPct: data.data[i].freeThrowPct,
+            topg: data.data[i].topg,
+            fgAtt: data.data[i].fgAtt,
+            threePtAtt: data.data[i].threePtAtt,
             color: "rgba(85, 37, 130, .75)",
             _symbolIndex: 0
           });
@@ -138,10 +154,11 @@ export default class CollegeScouting extends React.Component {
           cursor: "pointer",
           point: {
             events: {
-              click: () => {
+              click: event => {
                 console.log("hitting");
                 this.open();
-                console.log(event.point);
+                console.log(event.point.series.userOptions);
+                this.setState({});
               }
             }
           },
@@ -204,6 +221,20 @@ export default class CollegeScouting extends React.Component {
               ]
             ],
             name: data.data[i].firstName + " " + data.data[i].lastName,
+            id: data.data[i].id,
+            position: data.data[i].position,
+            astpg: data.data[i].astpg,
+            stlpg: data.data[i].stlpg,
+            blkpg: data.data[i].blkpg,
+            mpg: data.data[i].mpg,
+            twoPtPct: data.data[i].twoPtPct,
+            threePtPct: data.data[i].threePtPct,
+            gamesPlayed: data.data[i].gamesPlayed,
+            fgPct: data.data[i].fgPct,
+            freeThrowPct: data.data[i].freeThrowPct,
+            topg: data.data[i].topg,
+            fgAtt: data.data[i].fgAtt,
+            threePtAtt: data.data[i].threePtAtt,
             color: "rgba(85, 37, 130, .75)",
             _symbolIndex: 0
           });

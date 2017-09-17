@@ -88,7 +88,28 @@ module.exports = {
   },
   getCollegeRPGandPPG: (req, res) => {
     db.SixteenSeventeenNCAAPlayer
-      .findAll({ attributes: ["ppg", "rebpg", "firstName", "lastName"] })
+      .findAll({
+        attributes: [
+          "ppg",
+          "rebpg",
+          "firstName",
+          "lastName",
+          "id",
+          "position",
+          "astpg",
+          "stlpg",
+          "blkpg",
+          "mpg",
+          "twoPtPct",
+          "threePtPct",
+          "gamesPlayed",
+          "fgPct",
+          "freeThrowPct",
+          "topg",
+          "fgAtt",
+          "threePtAtt"
+        ]
+      })
       .then(data => {
         res.status(200).send(data);
       })
@@ -125,7 +146,21 @@ module.exports = {
           req.query.statOne,
           req.query.statTwo,
           "firstName",
-          "lastName"
+          "lastName",
+          "id",
+          "position",
+          "astpg",
+          "stlpg",
+          "blkpg",
+          "mpg",
+          "twoPtPct",
+          "threePtPct",
+          "gamesPlayed",
+          "fgPct",
+          "freeThrowPct",
+          "topg",
+          "fgAtt",
+          "threePtAtt"
         ]
       })
       .then(data => {
