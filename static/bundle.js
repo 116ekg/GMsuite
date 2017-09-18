@@ -41647,224 +41647,228 @@ var CollegeScouting = function (_React$Component) {
             ),
             _react2.default.createElement(
               "div",
-              { className: "stat-row" },
+              { className: "all-stats" },
               _react2.default.createElement(
-                _reactBootstrap.Row,
-                null,
+                "div",
+                { className: "stat-row" },
                 _react2.default.createElement(
-                  _reactBootstrap.Col,
-                  { lg: 2 },
+                  _reactBootstrap.Row,
+                  null,
                   _react2.default.createElement(
-                    "div",
-                    { className: "stat-button" },
+                    _reactBootstrap.Col,
+                    { lg: 2 },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-button" },
+                      _react2.default.createElement(
+                        "div",
+                        { className: "stat-header" },
+                        "GP"
+                      ),
+                      _react2.default.createElement(
+                        "div",
+                        { className: "stat-data" },
+                        this.state.gamesPlayed
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    _reactBootstrap.Col,
+                    { lg: 2 },
                     _react2.default.createElement(
                       "div",
                       { className: "stat-header" },
-                      "GP"
+                      "MPG"
                     ),
                     _react2.default.createElement(
                       "div",
                       { className: "stat-data" },
-                      this.state.gamesPlayed
+                      this.state.mpg
+                    )
+                  ),
+                  _react2.default.createElement(
+                    _reactBootstrap.Col,
+                    { lg: 2 },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-header" },
+                      "PPG"
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-data" },
+                      this.state.ppg
+                    )
+                  ),
+                  _react2.default.createElement(
+                    _reactBootstrap.Col,
+                    { lg: 2 },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-header" },
+                      "Ast"
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-data" },
+                      this.state.astpg
+                    )
+                  ),
+                  _react2.default.createElement(
+                    _reactBootstrap.Col,
+                    { lg: 2 },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-header" },
+                      "Reb"
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-data" },
+                      this.state.rebpg
+                    )
+                  ),
+                  _react2.default.createElement(
+                    _reactBootstrap.Col,
+                    { lg: 2 },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-header" },
+                      "Stl"
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-data" },
+                      this.state.stlpg
                     )
                   )
-                ),
+                )
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "stat-row" },
                 _react2.default.createElement(
-                  _reactBootstrap.Col,
-                  { lg: 2 },
+                  _reactBootstrap.Row,
+                  null,
                   _react2.default.createElement(
-                    "div",
-                    { className: "stat-header" },
-                    "MPG"
+                    _reactBootstrap.Col,
+                    { lg: 2 },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-header" },
+                      "Blk"
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-data" },
+                      this.state.blkpg
+                    )
                   ),
                   _react2.default.createElement(
-                    "div",
-                    { className: "stat-data" },
-                    this.state.mpg
-                  )
-                ),
-                _react2.default.createElement(
-                  _reactBootstrap.Col,
-                  { lg: 2 },
-                  _react2.default.createElement(
-                    "div",
-                    { className: "stat-header" },
-                    "PPG"
+                    _reactBootstrap.Col,
+                    { lg: 2 },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-header" },
+                      "TOV"
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-data" },
+                      this.state.topg
+                    )
                   ),
                   _react2.default.createElement(
-                    "div",
-                    { className: "stat-data" },
-                    this.state.ppg
-                  )
-                ),
-                _react2.default.createElement(
-                  _reactBootstrap.Col,
-                  { lg: 2 },
-                  _react2.default.createElement(
-                    "div",
-                    { className: "stat-header" },
-                    "Ast"
+                    _reactBootstrap.Col,
+                    { lg: 2 },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-header" },
+                      "FG Att"
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-data" },
+                      this.state.fgAtt
+                    )
                   ),
                   _react2.default.createElement(
-                    "div",
-                    { className: "stat-data" },
-                    this.state.astpg
-                  )
-                ),
-                _react2.default.createElement(
-                  _reactBootstrap.Col,
-                  { lg: 2 },
-                  _react2.default.createElement(
-                    "div",
-                    { className: "stat-header" },
-                    "Reb"
+                    _reactBootstrap.Col,
+                    { lg: 2 },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-header" },
+                      "FG %"
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-data" },
+                      Math.round(this.state.fgPct * 100 * 10) / 10
+                    )
                   ),
                   _react2.default.createElement(
-                    "div",
-                    { className: "stat-data" },
-                    this.state.rebpg
-                  )
-                ),
-                _react2.default.createElement(
-                  _reactBootstrap.Col,
-                  { lg: 2 },
-                  _react2.default.createElement(
-                    "div",
-                    { className: "stat-header" },
-                    "Stl"
+                    _reactBootstrap.Col,
+                    { lg: 2 },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-header" },
+                      "FT %"
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-data" },
+                      Math.round(this.state.freeThrowPct * 100 * 10) / 10
+                    )
                   ),
                   _react2.default.createElement(
-                    "div",
-                    { className: "stat-data" },
-                    this.state.stlpg
+                    _reactBootstrap.Col,
+                    { lg: 2 },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-header" },
+                      "2PT %"
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-data" },
+                      Math.round(this.state.twoPtPct * 100 * 10) / 10
+                    )
                   )
                 )
-              )
-            ),
-            _react2.default.createElement(
-              "div",
-              { className: "stat-row" },
+              ),
               _react2.default.createElement(
-                _reactBootstrap.Row,
-                null,
+                "div",
+                { className: "stat-row" },
                 _react2.default.createElement(
-                  _reactBootstrap.Col,
-                  { lg: 2 },
+                  _reactBootstrap.Row,
+                  null,
                   _react2.default.createElement(
-                    "div",
-                    { className: "stat-header" },
-                    "Blk"
+                    _reactBootstrap.Col,
+                    { lg: 2, lgOffset: 4 },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-header" },
+                      "3PT Att"
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-data" },
+                      this.state.threePtAtt
+                    )
                   ),
                   _react2.default.createElement(
-                    "div",
-                    { className: "stat-data" },
-                    this.state.blkpg
-                  )
-                ),
-                _react2.default.createElement(
-                  _reactBootstrap.Col,
-                  { lg: 2 },
-                  _react2.default.createElement(
-                    "div",
-                    { className: "stat-header" },
-                    "TOV"
-                  ),
-                  _react2.default.createElement(
-                    "div",
-                    { className: "stat-data" },
-                    this.state.topg
-                  )
-                ),
-                _react2.default.createElement(
-                  _reactBootstrap.Col,
-                  { lg: 2 },
-                  _react2.default.createElement(
-                    "div",
-                    { className: "stat-header" },
-                    "FG Att"
-                  ),
-                  _react2.default.createElement(
-                    "div",
-                    { className: "stat-data" },
-                    this.state.fgAtt
-                  )
-                ),
-                _react2.default.createElement(
-                  _reactBootstrap.Col,
-                  { lg: 2 },
-                  _react2.default.createElement(
-                    "div",
-                    { className: "stat-header" },
-                    "FG %"
-                  ),
-                  _react2.default.createElement(
-                    "div",
-                    { className: "stat-data" },
-                    Math.round(this.state.fgPct * 100 * 10) / 10
-                  )
-                ),
-                _react2.default.createElement(
-                  _reactBootstrap.Col,
-                  { lg: 2 },
-                  _react2.default.createElement(
-                    "div",
-                    { className: "stat-header" },
-                    "FT %"
-                  ),
-                  _react2.default.createElement(
-                    "div",
-                    { className: "stat-data" },
-                    Math.round(this.state.freeThrowPct * 100 * 10) / 10
-                  )
-                ),
-                _react2.default.createElement(
-                  _reactBootstrap.Col,
-                  { lg: 2 },
-                  _react2.default.createElement(
-                    "div",
-                    { className: "stat-header" },
-                    "2PT %"
-                  ),
-                  _react2.default.createElement(
-                    "div",
-                    { className: "stat-data" },
-                    Math.round(this.state.twoPtPct * 100 * 10) / 10
-                  )
-                )
-              )
-            ),
-            _react2.default.createElement(
-              "div",
-              { className: "stat-row" },
-              _react2.default.createElement(
-                _reactBootstrap.Row,
-                null,
-                _react2.default.createElement(
-                  _reactBootstrap.Col,
-                  { lg: 2, lgOffset: 4 },
-                  _react2.default.createElement(
-                    "div",
-                    { className: "stat-header" },
-                    "3PT Att"
-                  ),
-                  _react2.default.createElement(
-                    "div",
-                    { className: "stat-data" },
-                    this.state.threePtAtt
-                  )
-                ),
-                _react2.default.createElement(
-                  _reactBootstrap.Col,
-                  { lg: 2 },
-                  _react2.default.createElement(
-                    "div",
-                    { className: "stat-header" },
-                    "3PT %"
-                  ),
-                  _react2.default.createElement(
-                    "div",
-                    { className: "stat-data" },
-                    Math.round(this.state.threePtPct * 100 * 10) / 10
+                    _reactBootstrap.Col,
+                    { lg: 2 },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-header" },
+                      "3PT %"
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "stat-data" },
+                      Math.round(this.state.threePtPct * 100 * 10) / 10
+                    )
                   )
                 )
               )
@@ -41875,13 +41879,8 @@ var CollegeScouting = function (_React$Component) {
             null,
             _react2.default.createElement(
               _reactBootstrap.Button,
-              { className: "laker-button", onClick: this.close },
-              "Cancel"
-            ),
-            _react2.default.createElement(
-              _reactBootstrap.Button,
               { className: "laker-button", onClick: this.handleSubmit },
-              "Submit"
+              "Close"
             )
           )
         )

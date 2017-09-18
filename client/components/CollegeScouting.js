@@ -428,91 +428,90 @@ export default class CollegeScouting extends React.Component {
                 </div>
               </Col>
             </Row>
-            <div className="stat-row">
-              <Row>
-                <Col lg={2}>
-                  <div className="stat-button">
-                    <div className="stat-header">GP</div>
-                    <div className="stat-data">{this.state.gamesPlayed}</div>
-                  </div>
-                </Col>
-                <Col lg={2}>
-                  <div className="stat-header">MPG</div>
-                  <div className="stat-data">{this.state.mpg}</div>
-                </Col>
-                <Col lg={2}>
-                  <div className="stat-header">PPG</div>
-                  <div className="stat-data">{this.state.ppg}</div>
-                </Col>
-                <Col lg={2}>
-                  <div className="stat-header">Ast</div>
-                  <div className="stat-data">{this.state.astpg}</div>
-                </Col>
-                <Col lg={2}>
-                  <div className="stat-header">Reb</div>
-                  <div className="stat-data">{this.state.rebpg}</div>
-                </Col>
-                <Col lg={2}>
-                  <div className="stat-header">Stl</div>
-                  <div className="stat-data">{this.state.stlpg}</div>
-                </Col>
-              </Row>
-            </div>
-            <div className="stat-row">
-              <Row>
-                <Col lg={2}>
-                  <div className="stat-header">Blk</div>
-                  <div className="stat-data">{this.state.blkpg}</div>
-                </Col>
-                <Col lg={2}>
-                  <div className="stat-header">TOV</div>
-                  <div className="stat-data">{this.state.topg}</div>
-                </Col>
-                <Col lg={2}>
-                  <div className="stat-header">FG Att</div>
-                  <div className="stat-data">{this.state.fgAtt}</div>
-                </Col>
-                <Col lg={2}>
-                  <div className="stat-header">FG %</div>
-                  <div className="stat-data">
-                    {Math.round(this.state.fgPct * 100 * 10) / 10}
-                  </div>
-                </Col>
-                <Col lg={2}>
-                  <div className="stat-header">FT %</div>
-                  <div className="stat-data">
-                    {Math.round(this.state.freeThrowPct * 100 * 10) / 10}
-                  </div>
-                </Col>
-                <Col lg={2}>
-                  <div className="stat-header">2PT %</div>
-                  <div className="stat-data">
-                    {Math.round(this.state.twoPtPct * 100 * 10) / 10}
-                  </div>
-                </Col>
-              </Row>
-            </div>
-            <div className="stat-row">
-              <Row>
-                <Col lg={2} lgOffset={4}>
-                  <div className="stat-header">3PT Att</div>
-                  <div className="stat-data">{this.state.threePtAtt}</div>
-                </Col>
-                <Col lg={2}>
-                  <div className="stat-header">3PT %</div>
-                  <div className="stat-data">
-                    {Math.round(this.state.threePtPct * 100 * 10) / 10}
-                  </div>
-                </Col>
-              </Row>
+            <div className="all-stats">
+              <div className="stat-row">
+                <Row>
+                  <Col lg={2}>
+                    <div className="stat-button">
+                      <div className="stat-header">GP</div>
+                      <div className="stat-data">{this.state.gamesPlayed}</div>
+                    </div>
+                  </Col>
+                  <Col lg={2}>
+                    <div className="stat-header">MPG</div>
+                    <div className="stat-data">{this.state.mpg}</div>
+                  </Col>
+                  <Col lg={2}>
+                    <div className="stat-header">PPG</div>
+                    <div className="stat-data">{this.state.ppg}</div>
+                  </Col>
+                  <Col lg={2}>
+                    <div className="stat-header">Ast</div>
+                    <div className="stat-data">{this.state.astpg}</div>
+                  </Col>
+                  <Col lg={2}>
+                    <div className="stat-header">Reb</div>
+                    <div className="stat-data">{this.state.rebpg}</div>
+                  </Col>
+                  <Col lg={2}>
+                    <div className="stat-header">Stl</div>
+                    <div className="stat-data">{this.state.stlpg}</div>
+                  </Col>
+                </Row>
+              </div>
+              <div className="stat-row">
+                <Row>
+                  <Col lg={2}>
+                    <div className="stat-header">Blk</div>
+                    <div className="stat-data">{this.state.blkpg}</div>
+                  </Col>
+                  <Col lg={2}>
+                    <div className="stat-header">TOV</div>
+                    <div className="stat-data">{this.state.topg}</div>
+                  </Col>
+                  <Col lg={2}>
+                    <div className="stat-header">FG Att</div>
+                    <div className="stat-data">{this.state.fgAtt}</div>
+                  </Col>
+                  <Col lg={2}>
+                    <div className="stat-header">FG %</div>
+                    <div className="stat-data">
+                      {Math.round(this.state.fgPct * 100 * 10) / 10}
+                    </div>
+                  </Col>
+                  <Col lg={2}>
+                    <div className="stat-header">FT %</div>
+                    <div className="stat-data">
+                      {Math.round(this.state.freeThrowPct * 100 * 10) / 10}
+                    </div>
+                  </Col>
+                  <Col lg={2}>
+                    <div className="stat-header">2PT %</div>
+                    <div className="stat-data">
+                      {Math.round(this.state.twoPtPct * 100 * 10) / 10}
+                    </div>
+                  </Col>
+                </Row>
+              </div>
+              <div className="stat-row">
+                <Row>
+                  <Col lg={2} lgOffset={4}>
+                    <div className="stat-header">3PT Att</div>
+                    <div className="stat-data">{this.state.threePtAtt}</div>
+                  </Col>
+                  <Col lg={2}>
+                    <div className="stat-header">3PT %</div>
+                    <div className="stat-data">
+                      {Math.round(this.state.threePtPct * 100 * 10) / 10}
+                    </div>
+                  </Col>
+                </Row>
+              </div>
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button className="laker-button" onClick={this.close}>
-              Cancel
-            </Button>
             <Button className="laker-button" onClick={this.handleSubmit}>
-              Submit
+              Close
             </Button>
           </Modal.Footer>
         </Modal>

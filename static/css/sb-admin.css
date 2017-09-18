@@ -92,6 +92,11 @@ hr {
   margin-right: 20px;
 }
 
+.all-stats {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .stat-data {
   padding-top: 10px;
 }
