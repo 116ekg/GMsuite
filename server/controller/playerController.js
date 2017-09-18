@@ -109,7 +109,8 @@ module.exports = {
           "fgAtt",
           "threePtAtt",
           "ppg",
-          "rebpg"
+          "rebpg",
+          "jerseyNumber"
         ]
       })
       .then(data => {
@@ -164,7 +165,8 @@ module.exports = {
           "fgAtt",
           "threePtAtt",
           "ppg",
-          "rebpg"
+          "rebpg",
+          "jerseyNumber"
         ]
       })
       .then(data => {

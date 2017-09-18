@@ -37,6 +37,84 @@ hr {
   background-color: #fdb927;
 }
 
+#player-profile-pic {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.modal-body {
+  background-color: black;
+  width: 1000px;
+}
+
+.modal-footer {
+  background-color: black;
+  width: 1000px;
+}
+
+.modal-header {
+  background-color: rgb(85, 37, 130);
+  width: 1000px;
+  border-bottom: 1px solid #fdb927;
+}
+
+.player-profile-pic-frame {
+  background-color: black;
+}
+
+.nav-tabs > li > a:hover {
+  background-color: black;
+}
+
+.nav-tabs > li > a {
+  color: white;
+}
+
+.nav-tabs > li.active {
+  background-color: black;
+}
+
+.tabs:hover {
+  background-color: black;
+}
+
+.stat-row {
+  padding-top: 30px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.stat-data {
+  padding-top: 10px;
+}
+
+.stat-header {
+  background-color: rgb(85, 37, 130);
+  color: #fdb927;
+  font-size: 18px;
+  border-radius: 10px 10px 5px 5px;
+}
+
+.stat-button {
+  border-radius: 10%;
+}
+
+.white-text {
+  color: white;
+}
+
+.player-profile-modal {
+  width: 800px;
+}
+
 .scroll-to-top {
   position: fixed;
   right: 15px;

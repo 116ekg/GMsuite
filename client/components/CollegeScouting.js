@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import PlayerProfileTabs from "./PlayerProfileTabs";
 import {
   Form,
   FormGroup,
@@ -34,7 +35,8 @@ export default class CollegeScouting extends React.Component {
       freeThrowPct: null,
       topg: null,
       fgAtt: null,
-      threePtAtt: null
+      threePtAtt: null,
+      jerseyNumber: null
     };
     this.createChart = this.createChart.bind(this);
     this.firstInputChange = this.firstInputChange.bind(this);
@@ -99,6 +101,7 @@ export default class CollegeScouting extends React.Component {
             threePtAtt: data.data[i].threePtAtt,
             ppg: data.data[i].ppg,
             rebpg: data.data[i].rebpg,
+            jerseyNumber: data.data[i].jerseyNumber,
             color: "rgba(85, 37, 130, .75)",
             _symbolIndex: 0
           });
@@ -188,7 +191,8 @@ export default class CollegeScouting extends React.Component {
                     fgAtt: event.point.series.userOptions.fgAtt,
                     threePtAtt: event.point.series.userOptions.threePtAtt,
                     ppg: event.point.series.userOptions.ppg,
-                    rebpg: event.point.series.userOptions.rebpg
+                    rebpg: event.point.series.userOptions.rebpg,
+                    jerseyNumber: event.point.series.userOptions.jerseyNumber
                   },
                   () => {
                     console.log("DAS STATE: ", this.state);
@@ -273,6 +277,7 @@ export default class CollegeScouting extends React.Component {
             threePtAtt: data.data[i].threePtAtt,
             ppg: data.data[i].ppg,
             rebpg: data.data[i].rebpg,
+            jerseyNumber: data.data[i].jerseyNumber,
             color: "rgba(85, 37, 130, .75)",
             _symbolIndex: 0
           });
@@ -373,30 +378,142 @@ export default class CollegeScouting extends React.Component {
             </div>
           </div>
         </div>
-        <Modal style={{}} show={this.state.showModal} onHide={this.close}>
-          <Modal.Header>
-            <Modal.Title>{this.state.name}</Modal.Title>
-          </Modal.Header>
+        <Modal
+          bsSize="large"
+          style={{}}
+          show={this.state.showModal}
+          onHide={this.close}
+          dialogClassName="player-profile-modal"
+        >
           <Modal.Body>
-            <div>Pos: {this.state.position}</div>
-            <div>GP: {this.state.gamesPlayed}</div>
-            <div>MPG: {this.state.mpg}</div>
-            <div>PPG: {this.state.ppg}</div>
-            <div>Ast: {this.state.astpg}</div>
-            <div>Reb: {this.state.rebpg}</div>
-            <div>Stl: {this.state.stlpg}</div>
-            <div>Blk: {this.state.blkpg}</div>
-            <div>TOV: {this.state.topg}</div>
-            <div>FG Att: {this.state.fgAtt}</div>
-            <div>FG %: {this.state.fgPct}</div>
-            <div>FT %: {this.state.freeThrowPct}</div>
-            <div>2PT %: {this.state.twoPtPct}</div>
-            <div>3PT Att: {this.state.threePtAtt}</div>
-            <div>3PT %: {this.state.threePtPct}</div>
+            <Row>
+              <Col lg={4} className="player-profile-pic-frame">
+                <div>
+                  <img
+                    id="player-profile-pic"
+                    src="https://www.washingtonpost.com/blogs/recruiting-insider/files/2015/07/Markelle-Fultz-mug.jpg"
+                  />
+                </div>
+              </Col>
+              <Col lg={8} className="player-profile-pic-frame">
+                <div>
+                  <div>
+                    <h3 className="white-text">{this.state.name}</h3>
+                    <Button bsSize="xsmall">Add to watch list</Button>
+                    <hr />
+                    <Col lg={2}>
+                      <div>
+                        <h4 className="white-text">
+                          #{this.state.jerseyNumber} {this.state.position}
+                        </h4>
+                      </div>
+                    </Col>
+                    <Col lg={1}>
+                      <div className="white-text">|</div>
+                    </Col>
+                    <Col lg={3}>
+                      <div>
+                        <h4 className="white-text">6'3" 190 lb</h4>
+                      </div>
+                    </Col>
+                    <Col lg={1}>
+                      <div className="white-text">|</div>
+                    </Col>
+                    <Col lg={5}>
+                      <div>
+                        <h4 className="white-text">Washington Huskies</h4>
+                      </div>
+                    </Col>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+            <div className="stat-row">
+              <Row>
+                <Col lg={2}>
+                  <div className="stat-button">
+                    <div className="stat-header">GP</div>
+                    <div className="stat-data">{this.state.gamesPlayed}</div>
+                  </div>
+                </Col>
+                <Col lg={2}>
+                  <div className="stat-header">MPG</div>
+                  <div className="stat-data">{this.state.mpg}</div>
+                </Col>
+                <Col lg={2}>
+                  <div className="stat-header">PPG</div>
+                  <div className="stat-data">{this.state.ppg}</div>
+                </Col>
+                <Col lg={2}>
+                  <div className="stat-header">Ast</div>
+                  <div className="stat-data">{this.state.astpg}</div>
+                </Col>
+                <Col lg={2}>
+                  <div className="stat-header">Reb</div>
+                  <div className="stat-data">{this.state.rebpg}</div>
+                </Col>
+                <Col lg={2}>
+                  <div className="stat-header">Stl</div>
+                  <div className="stat-data">{this.state.stlpg}</div>
+                </Col>
+              </Row>
+            </div>
+            <div className="stat-row">
+              <Row>
+                <Col lg={2}>
+                  <div className="stat-header">Blk</div>
+                  <div className="stat-data">{this.state.blkpg}</div>
+                </Col>
+                <Col lg={2}>
+                  <div className="stat-header">TOV</div>
+                  <div className="stat-data">{this.state.topg}</div>
+                </Col>
+                <Col lg={2}>
+                  <div className="stat-header">FG Att</div>
+                  <div className="stat-data">{this.state.fgAtt}</div>
+                </Col>
+                <Col lg={2}>
+                  <div className="stat-header">FG %</div>
+                  <div className="stat-data">
+                    {Math.round(this.state.fgPct * 100 * 10) / 10}
+                  </div>
+                </Col>
+                <Col lg={2}>
+                  <div className="stat-header">FT %</div>
+                  <div className="stat-data">
+                    {Math.round(this.state.freeThrowPct * 100 * 10) / 10}
+                  </div>
+                </Col>
+                <Col lg={2}>
+                  <div className="stat-header">2PT %</div>
+                  <div className="stat-data">
+                    {Math.round(this.state.twoPtPct * 100 * 10) / 10}
+                  </div>
+                </Col>
+              </Row>
+            </div>
+            <div className="stat-row">
+              <Row>
+                <Col lg={2} lgOffset={4}>
+                  <div className="stat-header">3PT Att</div>
+                  <div className="stat-data">{this.state.threePtAtt}</div>
+                </Col>
+                <Col lg={2}>
+                  <div className="stat-header">3PT %</div>
+                  <div className="stat-data">
+                    {Math.round(this.state.threePtPct * 100 * 10) / 10}
+                  </div>
+                </Col>
+              </Row>
+            </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.close}>Cancel</Button>
-            <Button onClick={this.handleSubmit}>Submit</Button>
+            <Button className="laker-button" onClick={this.close}>
+              Cancel
+            </Button>
+            <Button className="laker-button" onClick={this.handleSubmit}>
+              Submit
+            </Button>
           </Modal.Footer>
         </Modal>
       </div>
