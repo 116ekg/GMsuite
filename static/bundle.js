@@ -32390,7 +32390,7 @@ var NavBar = function (_React$Component) {
                     _react2.default.createElement(
                       "span",
                       { className: "nav-link-text" },
-                      "Financial"
+                      "Edit/Add Player"
                     )
                   ),
                   _react2.default.createElement(
@@ -32403,9 +32403,13 @@ var NavBar = function (_React$Component) {
                       "li",
                       null,
                       _react2.default.createElement(
-                        "a",
-                        { href: "login.html" },
-                        "Login Page"
+                        _reactRouterDom.Link,
+                        { to: "/editplayer" },
+                        _react2.default.createElement(
+                          "a",
+                          { href: "login.html" },
+                          "Edit Player"
+                        )
                       )
                     ),
                     _react2.default.createElement(
@@ -32414,25 +32418,7 @@ var NavBar = function (_React$Component) {
                       _react2.default.createElement(
                         "a",
                         { href: "register.html" },
-                        "Registration Page"
-                      )
-                    ),
-                    _react2.default.createElement(
-                      "li",
-                      null,
-                      _react2.default.createElement(
-                        "a",
-                        { href: "forgot-password.html" },
-                        "Forgot Password Page"
-                      )
-                    ),
-                    _react2.default.createElement(
-                      "li",
-                      null,
-                      _react2.default.createElement(
-                        "a",
-                        { href: "blank.html" },
-                        "Blank Page"
+                        "Add Player"
                       )
                     )
                   )
@@ -35990,6 +35976,10 @@ var _NbaScouting = __webpack_require__(522);
 
 var _NbaScouting2 = _interopRequireDefault(_NbaScouting);
 
+var _EditPlayer = __webpack_require__(524);
+
+var _EditPlayer2 = _interopRequireDefault(_EditPlayer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Main = function Main() {
@@ -36003,7 +35993,8 @@ var Main = function Main() {
       _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/teamstats", component: _TeamStats2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/playerstats", component: _PlayerStats2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/collegescouting", component: _CollegeScouting2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/nbascouting", component: _NbaScouting2.default })
+      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/nbascouting", component: _NbaScouting2.default }),
+      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/editplayer", component: _EditPlayer2.default })
     )
   );
 };
@@ -41040,7 +41031,8 @@ var CollegeScouting = function (_React$Component) {
       topg: null,
       fgAtt: null,
       threePtAtt: null,
-      jerseyNumber: null
+      jerseyNumber: null,
+      profilepic: null
     };
     _this.createChart = _this.createChart.bind(_this);
     _this.firstInputChange = _this.firstInputChange.bind(_this);
@@ -41088,7 +41080,7 @@ var CollegeScouting = function (_React$Component) {
 
       _axios2.default.get("/api/players/getCollegeRPGandPPG").then(function (data) {
         console.log("THIS IS REBandPPG DATA: ", data);
-        for (var i = 1; i < data.data.length; i++) {
+        for (var i = 0; i < data.data.length; i++) {
           rebPPGdata.push({
             data: [[data.data[i].rebpg, data.data[i].ppg]],
             name: data.data[i].firstName + " " + data.data[i].lastName,
@@ -41109,6 +41101,7 @@ var CollegeScouting = function (_React$Component) {
             ppg: data.data[i].ppg,
             rebpg: data.data[i].rebpg,
             jerseyNumber: data.data[i].jerseyNumber,
+            profilepic: data.data[i].profilepic,
             color: "rgba(85, 37, 130, .75)",
             _symbolIndex: 0
           });
@@ -41197,7 +41190,8 @@ var CollegeScouting = function (_React$Component) {
                     threePtAtt: event.point.series.userOptions.threePtAtt,
                     ppg: event.point.series.userOptions.ppg,
                     rebpg: event.point.series.userOptions.rebpg,
-                    jerseyNumber: event.point.series.userOptions.jerseyNumber
+                    jerseyNumber: event.point.series.userOptions.jerseyNumber,
+                    profilepic: event.point.series.userOptions.profilepic
                   }, function () {
                     console.log("DAS STATE: ", _this3.state);
                     _this3.open();
@@ -41263,7 +41257,7 @@ var CollegeScouting = function (_React$Component) {
         params: { statOne: this.state.statOne, statTwo: this.state.statTwo }
       }).then(function (data) {
         console.log(data.data[1]);
-        for (var i = 1; i < data.data.length; i++) {
+        for (var i = 0; i < data.data.length; i++) {
           statArr.push({
             data: [[data.data[i][_this6.state.statTwo], data.data[i][_this6.state.statOne]]],
             name: data.data[i].firstName + " " + data.data[i].lastName,
@@ -41284,6 +41278,7 @@ var CollegeScouting = function (_React$Component) {
             ppg: data.data[i].ppg,
             rebpg: data.data[i].rebpg,
             jerseyNumber: data.data[i].jerseyNumber,
+            profilepic: data.data[i].profilepic,
             color: "rgba(85, 37, 130, .75)",
             _symbolIndex: 0
           });
@@ -41556,10 +41551,7 @@ var CollegeScouting = function (_React$Component) {
                 _react2.default.createElement(
                   "div",
                   null,
-                  _react2.default.createElement("img", {
-                    id: "player-profile-pic",
-                    src: "http://a.espncdn.com/combiner/i?img=/i/headshots/recruiting/ncb/players/full/203881.png&w=350&h=254"
-                  })
+                  _react2.default.createElement("img", { id: "player-profile-pic", src: this.state.profilepic })
                 )
               ),
               _react2.default.createElement(
@@ -53346,6 +53338,279 @@ var PlayerProfileTabs = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = PlayerProfileTabs;
+
+/***/ }),
+/* 524 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactBootstrap = __webpack_require__(385);
+
+var _axios = __webpack_require__(76);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var EditPlayer = function (_React$Component) {
+  _inherits(EditPlayer, _React$Component);
+
+  function EditPlayer() {
+    _classCallCheck(this, EditPlayer);
+
+    var _this = _possibleConstructorReturn(this, (EditPlayer.__proto__ || Object.getPrototypeOf(EditPlayer)).call(this));
+
+    _this.state = {
+      lastName: "",
+      firstName: "",
+      height: "",
+      weight: "",
+      profilepic: "",
+      teamName: "",
+      teamMarket: ""
+    };
+    _this.handleChange = _this.handleChange.bind(_this);
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    return _this;
+  }
+
+  _createClass(EditPlayer, [{
+    key: "handleChange",
+    value: function handleChange(event) {
+      var temp = event.target.name;
+      this.setState(_defineProperty({}, temp, event.target.value));
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit() {
+      _axios2.default.put("/api/players/editPlayer", this.state).then(function (data) {
+        console.log("EDITPLAYERDATA: ", data);
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "content-wrapper" },
+        _react2.default.createElement(
+          _reactBootstrap.Row,
+          null,
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { lg: 12 },
+            _react2.default.createElement(
+              "h4",
+              { id: "test" },
+              "Edit Player"
+            ),
+            _react2.default.createElement("hr", null)
+          )
+        ),
+        _react2.default.createElement(
+          _reactBootstrap.Well,
+          null,
+          _react2.default.createElement(
+            _reactBootstrap.Row,
+            null,
+            _react2.default.createElement(
+              _reactBootstrap.Form,
+              null,
+              _react2.default.createElement(
+                _reactBootstrap.Col,
+                { lg: 3, lgOffset: 1 },
+                _react2.default.createElement(
+                  _reactBootstrap.FormGroup,
+                  null,
+                  _react2.default.createElement(
+                    _reactBootstrap.ControlLabel,
+                    null,
+                    "Last Name"
+                  ),
+                  _react2.default.createElement(_reactBootstrap.FormControl, {
+                    required: true,
+                    name: "lastName",
+                    type: "text",
+                    placeholder: "Enter Last Name",
+                    onChange: this.handleChange
+                  })
+                )
+              ),
+              _react2.default.createElement(
+                _reactBootstrap.Col,
+                { lg: 3, lgOffset: 1, sm: 12 },
+                _react2.default.createElement(
+                  _reactBootstrap.FormGroup,
+                  null,
+                  _react2.default.createElement(
+                    _reactBootstrap.ControlLabel,
+                    null,
+                    "Team City"
+                  ),
+                  _react2.default.createElement(_reactBootstrap.FormControl, {
+                    name: "teamMarket",
+                    type: "text",
+                    placeholder: "Enter Team Market",
+                    onChange: this.handleChange
+                  })
+                )
+              ),
+              _react2.default.createElement(
+                _reactBootstrap.Col,
+                { lg: 3, sm: 12 },
+                _react2.default.createElement(
+                  _reactBootstrap.FormGroup,
+                  null,
+                  _react2.default.createElement(
+                    _reactBootstrap.ControlLabel,
+                    null,
+                    "Team Name"
+                  ),
+                  _react2.default.createElement(_reactBootstrap.FormControl, {
+                    name: "teamName",
+                    type: "text",
+                    placeholder: "Enter Team Name",
+                    onChange: this.handleChange
+                  })
+                )
+              ),
+              _react2.default.createElement(
+                _reactBootstrap.Col,
+                { lg: 3, lgOffset: 1, sm: 12 },
+                _react2.default.createElement(
+                  _reactBootstrap.FormGroup,
+                  null,
+                  _react2.default.createElement(
+                    _reactBootstrap.ControlLabel,
+                    null,
+                    "First Name"
+                  ),
+                  _react2.default.createElement(_reactBootstrap.FormControl, {
+                    name: "firstName",
+                    type: "text",
+                    placeholder: "Enter First Name",
+                    onChange: this.handleChange
+                  })
+                )
+              ),
+              _react2.default.createElement(
+                _reactBootstrap.Col,
+                { lg: 3, lgOffset: 1, sm: 12 },
+                _react2.default.createElement(
+                  _reactBootstrap.FormGroup,
+                  null,
+                  _react2.default.createElement(
+                    _reactBootstrap.ControlLabel,
+                    null,
+                    "Height"
+                  ),
+                  _react2.default.createElement(_reactBootstrap.FormControl, {
+                    name: "height",
+                    type: "text",
+                    placeholder: "Height",
+                    onChange: this.handleChange
+                  })
+                )
+              ),
+              _react2.default.createElement(
+                _reactBootstrap.Col,
+                { lg: 3, sm: 12 },
+                _react2.default.createElement(
+                  _reactBootstrap.FormGroup,
+                  null,
+                  _react2.default.createElement(
+                    _reactBootstrap.ControlLabel,
+                    null,
+                    "Weight"
+                  ),
+                  _react2.default.createElement(_reactBootstrap.FormControl, {
+                    name: "weight",
+                    type: "text",
+                    placeholder: "Weight",
+                    onChange: this.handleChange
+                  })
+                )
+              ),
+              _react2.default.createElement(
+                _reactBootstrap.Col,
+                { lg: 6, lgOffset: 1, sm: 12 },
+                _react2.default.createElement(
+                  _reactBootstrap.FormGroup,
+                  null,
+                  _react2.default.createElement(
+                    _reactBootstrap.ControlLabel,
+                    null,
+                    "Player Picture"
+                  ),
+                  _react2.default.createElement(_reactBootstrap.FormControl, {
+                    name: "profilepic",
+                    type: "text",
+                    placeholder: "Enter player picture URL",
+                    onChange: this.handleChange
+                  })
+                )
+              ),
+              _react2.default.createElement(
+                _reactBootstrap.Col,
+                { lg: 10, lgOffset: 1, sm: 12 },
+                _react2.default.createElement(
+                  _reactBootstrap.FormGroup,
+                  null,
+                  _react2.default.createElement(
+                    _reactBootstrap.ControlLabel,
+                    null,
+                    "Additional Notes"
+                  ),
+                  _react2.default.createElement(_reactBootstrap.FormControl, {
+                    componentClass: "textarea",
+                    name: "formAdditionalNotes",
+                    type: "text",
+                    placeholder: "Enter any additional notes here"
+                  })
+                )
+              ),
+              _react2.default.createElement(
+                _reactBootstrap.Col,
+                { lg: 10, lgOffset: 1, sm: 12 },
+                _react2.default.createElement(
+                  _reactBootstrap.Button,
+                  { onClick: this.handleSubmit },
+                  "Submit"
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return EditPlayer;
+}(_react2.default.Component);
+
+exports.default = EditPlayer;
 
 /***/ })
 /******/ ]);

@@ -36,7 +36,8 @@ export default class CollegeScouting extends React.Component {
       topg: null,
       fgAtt: null,
       threePtAtt: null,
-      jerseyNumber: null
+      jerseyNumber: null,
+      profilepic: null
     };
     this.createChart = this.createChart.bind(this);
     this.firstInputChange = this.firstInputChange.bind(this);
@@ -81,7 +82,7 @@ export default class CollegeScouting extends React.Component {
       .get("/api/players/getCollegeRPGandPPG")
       .then(data => {
         console.log("THIS IS REBandPPG DATA: ", data);
-        for (var i = 1; i < data.data.length; i++) {
+        for (var i = 0; i < data.data.length; i++) {
           rebPPGdata.push({
             data: [[data.data[i].rebpg, data.data[i].ppg]],
             name: data.data[i].firstName + " " + data.data[i].lastName,
@@ -102,6 +103,7 @@ export default class CollegeScouting extends React.Component {
             ppg: data.data[i].ppg,
             rebpg: data.data[i].rebpg,
             jerseyNumber: data.data[i].jerseyNumber,
+            profilepic: data.data[i].profilepic,
             color: "rgba(85, 37, 130, .75)",
             _symbolIndex: 0
           });
@@ -192,7 +194,8 @@ export default class CollegeScouting extends React.Component {
                     threePtAtt: event.point.series.userOptions.threePtAtt,
                     ppg: event.point.series.userOptions.ppg,
                     rebpg: event.point.series.userOptions.rebpg,
-                    jerseyNumber: event.point.series.userOptions.jerseyNumber
+                    jerseyNumber: event.point.series.userOptions.jerseyNumber,
+                    profilepic: event.point.series.userOptions.profilepic
                   },
                   () => {
                     console.log("DAS STATE: ", this.state);
@@ -252,7 +255,7 @@ export default class CollegeScouting extends React.Component {
       })
       .then(data => {
         console.log(data.data[1]);
-        for (var i = 1; i < data.data.length; i++) {
+        for (var i = 0; i < data.data.length; i++) {
           statArr.push({
             data: [
               [
@@ -278,6 +281,7 @@ export default class CollegeScouting extends React.Component {
             ppg: data.data[i].ppg,
             rebpg: data.data[i].rebpg,
             jerseyNumber: data.data[i].jerseyNumber,
+            profilepic: data.data[i].profilepic,
             color: "rgba(85, 37, 130, .75)",
             _symbolIndex: 0
           });
@@ -390,10 +394,7 @@ export default class CollegeScouting extends React.Component {
             <Row>
               <Col lg={4} className="player-profile-pic-frame">
                 <div>
-                  <img
-                    id="player-profile-pic"
-                    src="http://a.espncdn.com/combiner/i?img=/i/headshots/recruiting/ncb/players/full/203881.png&w=350&h=254"
-                  />
+                  <img id="player-profile-pic" src={this.state.profilepic} />
                 </div>
               </Col>
               <Col lg={8} className="player-profile-pic-frame">

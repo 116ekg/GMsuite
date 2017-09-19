@@ -110,7 +110,8 @@ module.exports = {
           "threePtAtt",
           "ppg",
           "rebpg",
-          "jerseyNumber"
+          "jerseyNumber",
+          "profilepic"
         ]
       })
       .then(data => {
@@ -166,7 +167,8 @@ module.exports = {
           "threePtAtt",
           "ppg",
           "rebpg",
-          "jerseyNumber"
+          "jerseyNumber",
+          "profilepic"
         ]
       })
       .then(data => {
@@ -274,6 +276,28 @@ module.exports = {
       .catch(err => {
         res.status(500).send(err);
         console.log(err);
+      });
+  },
+  editPlayer: (req, res) => {
+    db.SixteenSeventeenNCAAPlayer
+      .update(
+        {
+          height: req.body.height,
+          weight: req.body.weight,
+          profilepic: req.body.profilepic,
+          teamName: req.body.teamName,
+          teamMarket: req.body.teamMarket
+        },
+        {
+          where: { lastName: req.body.lastName, firstName: req.body.firstName },
+          returning: true
+        }
+      )
+      .then(update => {
+        res.status(200).send(update);
+      })
+      .catch(err => {
+        res.status(500).send(err);
       });
   }
 };

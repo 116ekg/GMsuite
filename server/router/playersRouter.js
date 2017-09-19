@@ -10,5 +10,6 @@ router.get("/getCollegeStatComparison", controller.getCollegeStatComparison);
 router.get("/updateNbaPlayers", controller.updateNbaPlayers);
 router.get("/getCollegeTeams", controller.getCollegeTeams);
 router.get("/getCollegeStats", controller.getCollegeStats);
+router.put("/editPlayer", controller.editPlayer);
 
 module.exports = router;

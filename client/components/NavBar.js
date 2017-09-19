@@ -114,23 +114,19 @@ export default class NavBar extends React.Component {
                     data-parent="#exampleAccordion"
                   >
                     <i className="fa fa-fw fa-file" />
-                    <span className="nav-link-text">Financial</span>
+                    <span className="nav-link-text">Edit/Add Player</span>
                   </a>
                   <ul
                     className="sidenav-second-level collapse"
                     id="collapseExamplePages"
                   >
                     <li>
-                      <a href="login.html">Login Page</a>
+                      <Link to="/editplayer">
+                        <a href="login.html">Edit Player</a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="register.html">Registration Page</a>
-                    </li>
-                    <li>
-                      <a href="forgot-password.html">Forgot Password Page</a>
-                    </li>
-                    <li>
-                      <a href="blank.html">Blank Page</a>
+                      <a href="register.html">Add Player</a>
                     </li>
                   </ul>
                 </li>
