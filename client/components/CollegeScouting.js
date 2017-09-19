@@ -385,13 +385,14 @@ export default class CollegeScouting extends React.Component {
           onHide={this.close}
           dialogClassName="player-profile-modal"
         >
+          <Modal.Header />
           <Modal.Body>
             <Row>
               <Col lg={4} className="player-profile-pic-frame">
                 <div>
                   <img
                     id="player-profile-pic"
-                    src="https://www.washingtonpost.com/blogs/recruiting-insider/files/2015/07/Markelle-Fultz-mug.jpg"
+                    src="http://a.espncdn.com/combiner/i?img=/i/headshots/recruiting/ncb/players/full/203881.png&w=350&h=254"
                   />
                 </div>
               </Col>
@@ -510,7 +511,11 @@ export default class CollegeScouting extends React.Component {
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button className="laker-button" onClick={this.handleSubmit}>
+            <Button
+              bsSize="small"
+              className="laker-button"
+              onClick={this.close}
+            >
               Close
             </Button>
           </Modal.Footer>

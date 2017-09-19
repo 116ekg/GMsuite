@@ -91,7 +91,8 @@ const SixteenSeventeenNCAAPlayer = db.define("sixteen-seventeen-ncaa-player", {
   teamMarket: { type: Sequelize.STRING, allowNull: true },
   radarId: { type: Sequelize.STRING, allowNull: true },
   fgAtt: { type: Sequelize.FLOAT, allowNull: true },
-  threePtAtt: { type: Sequelize.FLOAT, allowNull: true }
+  threePtAtt: { type: Sequelize.FLOAT, allowNull: true },
+  profilePic: { type: Sequelize.STRING, allowNull: true }
 });
 
 const Note = db.define("note", {

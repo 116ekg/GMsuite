@@ -48,27 +48,28 @@ hr {
 }
 
 .modal-body {
-  background-color: black;
+  background-color: #101010;
   width: 1000px;
 }
 
 .modal-footer {
-  background-color: black;
+  background-color: #101010;
   width: 1000px;
+  border-radius: 0px 0px 10px 10px;
 }
 
 .modal-header {
   background-color: rgb(85, 37, 130);
   width: 1000px;
-  border-bottom: 1px solid #fdb927;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .player-profile-pic-frame {
-  background-color: black;
+  background-color: #101010;
 }
 
 .nav-tabs > li > a:hover {
-  background-color: black;
+  background-color: #101010;
 }
 
 .nav-tabs > li > a {
@@ -76,11 +77,11 @@ hr {
 }
 
 .nav-tabs > li.active {
-  background-color: black;
+  background-color: #101010;
 }
 
 .tabs:hover {
-  background-color: black;
+  background-color: #101010;
 }
 
 .stat-row {
